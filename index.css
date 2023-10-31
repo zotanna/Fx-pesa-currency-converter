@@ -1,0 +1,215 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Wrapper and columns */
+.wrapper {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    flex-wrap: wrap;
+}
+
+.left-col, .right-col {
+    flex-basis: 50%;
+    height: 100vh;
+    position: relative;
+}
+
+/* Logo */
+.logo {
+    display: block;
+    width: 75px;
+    margin-top: 30px;
+    margin-left: 100px;
+}
+
+/* Content */
+.content {
+    width: 75%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px 0;
+    border-radius: 15px;
+}
+
+.content h1 {
+    color: #0043ee;
+    font-size: 37px;
+    line-height: 30px;
+    margin: 25px 0 0 20px;
+}
+
+.content p {
+    color: #0043ee;
+    font-size: 17px;
+    line-height: 28px;
+    margin: 0 0 50px 20px;
+}
+
+/* Slider */
+.slider {
+    width: 100%;
+    height: 60%;
+    display: flex;
+}
+
+.slider img {
+    width: 100%;
+}
+
+hr {
+    border: none;
+    width: 270px;
+    height: 1px;
+    margin: 20px 0 30px;
+    background: #cdcccc;
+}
+
+/* Slider content */
+.slider-content {
+    background: #0043ee;
+    padding: 30px 30px 0;
+    box-sizing: border-box;
+}
+
+.slider-content h2 {
+    color: #fff;
+    font-size: 26px;
+    font-weight: 100;
+}
+
+.slider-content p {
+    color: #cdcccc;
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0 0 20px;
+}
+
+/* Controller */
+.controller {
+    width: 120px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.controller img {
+    width: 45px;
+    cursor: pointer;
+}
+
+.vertical-line {
+    height: 30px;
+    width: 2px;
+    background: #fff;
+}
+
+/* Responsive UI */
+@media only screen and (max-width: 600px) {
+    .logo {
+        margin: 30px auto;
+    }
+    .left-col, .right-col {
+        flex-basis: 100%;
+    }
+    .content {
+        padding: 4rem 2rem;
+    }
+    .content h1 {
+        font-size: 34px;
+        line-height: 38px;
+    }
+    .slider {
+        height: auto;
+    }
+    .slider-content {
+        height: auto;
+    }
+    .currency input {
+        width: 200px;
+    }
+}
+
+/* Currency Converter */
+.container {
+    display: block;
+}
+
+.swapBtn {
+    color: #fff;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 10px;
+    margin-left: 20px;
+    padding: 14px 40px;
+    width: 200px;
+    border: none;
+    background: #0043ee;
+    outline: none;
+}
+
+.currency {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 10rem;
+    padding: 6px;
+    position: relative;
+}
+
+.currency select {
+    width: auto;
+    border: 1px solid rgba(128, 128, 128, 0.096);
+    font-size: 16px;
+    background-color: rgba(211, 211, 211, 0.486);
+    padding: 12px 10px;
+    outline: none;
+    margin-left: 20px;
+}
+
+.currency input {
+    font-family: sans-serif;
+    max-width: 5rem;
+    padding: .5rem;
+    border: solid #ddd;
+    border-width: 0 0 2px;
+    text-align: right;
+    margin-left: 50px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.swap-rate-container {
+    display: block;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.rate {
+    font-size: 17px;
+    padding: 6px;
+    margin-left: 12px;
+}
+
+/* Remove focus outlines */
+select:focus, input:focus, button:focus {
+    outline: 0;
+}
