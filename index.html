@@ -1,48 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <title>Fx-pesa currency converter</title>
-    <link rel="stylesheet" href="index.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- FontAweome CDN Link for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fx-pesa</title>
+    <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <div class="wrapper">
-      <header>Fx-pesa currency converter</header>
-      <form action="#">
-        <div class="amount">
-          <p>Enter Amount</p>
-          <input type="text" value="1">
+    <div class="exchangeRate">
+      <div class="header">
+        <div>
+          <h1>Fx-pesa currency converter</h1>
+          <p>You're welcome to the one stop shop for your currency rates.</p>
         </div>
-        <div class="drop-list">
-          <div class="from">
-            <p>From</p>
-            <div class="select-box">
-              <img src="https://flagcdn.com/48x36/us.png" alt="flag">
-              <select>
-                <option value="USD" selected>USD</option>
-                <!-- Other options will be inserted from JavaScript -->
+      </div>
+      <div class="get_rate">
+        <h3>Search for latest rates against the dollar</h3>
+        <div>
+          <select name="xRate" id="xRate">
+            <option value="EUR">USD/EUR</option>
+            <option value="GBP">USD/GBP</option>
+            <option value="CAD">USD/CAD</option>
+            <option value="BGN">USD/BGN</option>
+            <option value="CHF">USD/CHF</option>
+            <option value="CNY">USD/CNY</option>
+            <option value="KES">USD/KES</option>
+            <option value="AUD">USD/AUD</option>
+          </select>
+          <input type="button" id="searchBtn" value="Search" />
+        </div>
+        <div id="display"></div>
+      </div>
+      <div class="get_rate">
+        <h3>Find country name by typing the currency code</h3>
+        <div class="findCode">
+          <input type="text" id="findCode" value="" />
+          <input type="button" id="codeBtn" value="Find" />
+        </div>
+        <div id="displayFind"></div>
+      </div>
+      <div class="currency">
+        <form>
+          <div class="containerdiv">
+            <div class="first">
+              <label for="amount">Amount:</label>
+              <input type="number" id="amount" name="amount" />
+            </div>
+            <div class="second">
+              <label for="fromCurrency"> From Currrecy:</label>
+              <select id="fromCurrency" name="fromCurrency">
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="GBP">GBP</option>
+                <option value="CAD">CAD</option>
+                <option value="AUD">AUD</option>
+                <option value="CHF">CHF</option>
+                <option value="EBP">EBP</option>
+                <option value="CNY">CNY</option>
+                <option value="BGN">BGN</option>
+                <option value="NGN">NGN</option>
+                <option value="AED">AED</option>
+                <option value="AFN">AFN</option>
+                <option value="ALL">ALL</option>
+                <option value="BBD">BBD</option>
+              </select>
+            </div>
+            <div class="third">
+              <label for="toCurrency">To Currency:</label>
+              <select id="toCurrency" name="toCurrency">
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="GBP">GBP</option>
+                <option value="CAD">CAD</option>
+                <option value="AUD">AUD</option>
+                <option value="CHF">CHF</option>
+                <option value="EBP">EBP</option>
+                <option value="CNY">CNY</option>
+                <option value="BGN">BGN</option>
+                <option value="NGN">NGN</option>
+                <option value="AED">AED</option>
+                <option value="AFN">AFN</option>
+                <option value="ALL">ALL</option>
+                <option value="BBD">BBD</option>
               </select>
             </div>
           </div>
-          <div class="icon"><i class="fas fa-exchange-alt"></i></div>
-          <div class="to">
-            <p>To</p>
-            <div class="select-box">
-              <img src="https://flagcdn.com/48x36/np.png" alt="flag">
-              <select> <!-- Options tag are inserted from JavaScript --> </select>
-            </div>
-          </div>
-        </div>
-        <div class="exchange-rate">Getting Exchange Rate...</div>
-        <button>Convert</button>
-      </form>
+          <input type="button" id="convertBtn" value="Convert" />
+        </form>
+        <div id="result"></div>
+      </div>
     </div>
-
-    <script src="country-list.js"></script>
     <script src="index.js"></script>
-
   </body>
 </html>

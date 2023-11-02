@@ -1,66 +1,82 @@
-const dropList = document.querySelectorAll("form select"),
-fromCurrency = document.querySelector(".from select"),
-toCurrency = document.querySelector(".to select"),
-getButton = document.querySelector("form button");
+// Add an Event listener to the button
 
-for (let i = 0; i < dropList.length; i++) {
-    for(let currency_code in country_list){
-        let selected = i == 0 ? currency_code == "USD" ? "selected" : "" : currency_code == "KSH" ? "selected" : "";
-        let optionTag = `<option value="${currency_code}" ${selected}>${currency_code}</option>`;
-        dropList[i].insertAdjacentHTML("beforeend", optionTag);
-    }
-    dropList[i].addEventListener("change", e =>{
-        loadFlag(e.target);
-    });
+const convertBtn = document.getElementById("convertBtn");
+if (convertBtn !== null) {
+  convertBtn.addEventListener("click", function () {
+    // Event handler code here
+    const fromCurrency = document.getElementById("fromCurrency").value;
+    const toCurrency = document.getElementById("toCurrency").value;
+    const amount = document.getElementById("amount").value;
+
+    // Make an API request to exchange rate API
+    const apiurl =
+      "https://v6.exchangerate-api.com/v6/218938046c0019a4b22b42f1/latest/" +
+      fromCurrency;
+    fetch(apiurl)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        const rate = data.conversion_rates[toCurrency];
+        const convertedAmount = (amount * rate).toFixed(2);
+        document.getElementById("result").innerHTML =
+          amount +
+          " " +
+          fromCurrency +
+          " is equivalent to " +
+          convertedAmount +
+          " " +
+          toCurrency;
+      })
+      .catch(function (err) {
+        console.error("Error fetching exchange rate:", err);
+      });
+  });
 }
 
-function loadFlag(element){
-    for(let code in country_list){
-        if(code == element.value){
-            let imgTag = element.parentElement.querySelector("img");
-            imgTag.src = `https://flagcdn.com/48x36/${country_list[code].toLowerCase()}.png`;
+const searchBtn = document.getElementById("searchBtn");
+searchBtn.addEventListener("click", function () {
+  const toCurrency = document.getElementById("xRate").value;
+  const apiurl =
+    "https://v6.exchangerate-api.com/v6/218938046c0019a4b22b42f1/latest/USD";
+  fetch(apiurl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      const rate = data.conversion_rates[toCurrency];
+      document.getElementById("display").innerHTML =
+        "Exchange rate" + " " + "=" + " " + rate;
+    })
+    .catch(function (err) {
+      console.error("Error fetching exchange rate:", err);
+    });
+});
+
+document.getElementById("codeBtn").addEventListener("click", function () {
+  const myWord = document.getElementById("findCode").value;
+  const UrlApi =
+    "https://v6.exchangerate-api.com/v6/218938046c0019a4b22b42f1/codes";
+
+  fetch(UrlApi)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      let newWord = null;
+
+      for (const currency of data.supported_codes) {
+        if (currency[0] === myWord) {
+          newWord = currency[1];
+          break;
         }
-    }
-}
+      }
 
-window.addEventListener("load", ()=>{
-    getExchangeRate();
-});
-
-getButton.addEventListener("click", e =>{
-    e.preventDefault();
-    getExchangeRate();
-});
-
-const exchangeIcon = document.querySelector("form .icon");
-exchangeIcon.addEventListener("click", ()=>{
-    let tempCode = fromCurrency.value;
-    fromCurrency.value = toCurrency.value;
-    toCurrency.value = tempCode;
-    loadFlag(fromCurrency);
-    loadFlag(toCurrency);
-    getExchangeRate();
-})
-
-function getExchangeRate(){
-    const amount = document.querySelector("form input");
-    const exchangeRateTxt = document.querySelector("form .exchange-rate");
-    let amountVal = amount.value;
-    if(amountVal == "" || amountVal == "0"){
-        amount.value = "1";
-        amountVal = 1;
-    }
-    exchangeRateTxt.innerText = "Converting...";
-    /* Replace 'YOUR-API-KEY' with your own API Key by following steps writte in README.md */
-    /* let url = `https://v6.exchangerate-api.com/v6/YOUR-API-KEY/latest/${fromCurrency.value}`; */
-    
-    /* Following is a example of My API Key */
-    let url = `https://v6.exchangerate-api.com/v6/218938046c0019a4b22b42f1/latest/${fromCurrency.value}`;
-    fetch(url).then(response => response.json()).then(result =>{
-        let exchangeRate = result.conversion_rates[toCurrency.value];
-        let totalExRate = (amountVal * exchangeRate).toFixed(2);
-        exchangeRateTxt.innerText = `${amountVal} ${fromCurrency.value} = ${totalExRate} ${toCurrency.value}`;
-    }).catch(() =>{
-        exchangeRateTxt.innerText = "Something went wrong";
+      if (newWord) {
+        document.getElementById("displayFind").innerHTML = newWord;
+      } else {
+        document.getElementById("displayFind").innerHTML =
+          "Country name not found for this code.";
+      }
     });
-}
+});
