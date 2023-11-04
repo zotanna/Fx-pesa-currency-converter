@@ -1,67 +1,76 @@
-/* Reset default styles */
+
 * {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  transition: all 0.3s ease; /* Add transitions for smoother changes */
 }
 
 /* Set a background color for the entire body */
 body {
-  background-color: #4CAF50; /* Use a green color you prefer */
+  background-color: #4CAF50;
+  background-image: radial-gradient(circle, #5c0067 0%, #00d4ff 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Center everything vertically */
 }
 
 /* Style the header with a centered title and subtitle */
 .header {
-  background-color: #3498db; /* Use a blue color for the header background */
-  color: #fff; /* White text color */
+  background-color: #3498db;
+  color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  border-radius: 10px; /* Rounded corners for the header */
 }
 
 .header > div > h1 {
-  font-size: 2em; /* Increase the font size */
-  font-weight: 700; /* Make the text bold */
-  margin: 0; /* Reset the margin */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add a subtle text shadow */
-  text-align: center; /* Center-align the text */
+  font-size: 2em;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  text-align: center;
 }
 
 .header > div > p {
-  font-size: 1.2em; /* Increase the font size */
-  font-weight: 400; /* Adjust the font weight if needed */
-  margin: 0; /* Reset the margin */
-  padding-top: 7px; /* Keep the padding-top */
-  text-align: center; /* Center-align the text */
+  font-size: 1.2em;
+  font-weight: 400;
+  margin: 0;
+  padding-top: 7px;
+  text-align: center;
 }
 
 /* Style the currency input box */
 .currency {
-  background-color: #f0f0f0; /* Use a light gray background for currency input */
+  background-color: #f0f0f0;
   border-radius: 10px;
   padding: 10px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
 }
 
 /* Style labels */
 label {
   font-size: 1.2em;
-  font-weight: bold; /* Make labels bold */
+  font-weight: bold;
+  color: #3498db; /* Color the labels to match the theme */
 }
 
 /* Create a container for input fields */
 .containerdiv {
   display: flex;
   justify-content: space-around;
-  padding-top: 30px; /* Slightly reduce the padding */
+  padding-top: 30px;
 }
 
 /* Style the input fields */
 #amount, #fromCurrency, #toCurrency, #xRate {
   height: 2em;
-  width: 100%; /* Make input fields full width */
-  border: 2px solid #6f6ff4; /* Use a subtle border color */
+  width: 100%;
+  border: 2px solid #6f6ff4;
   border-radius: 8px;
   margin: 10px 0;
   padding: 5px;
@@ -70,54 +79,55 @@ label {
 /* Style the currency selection boxes */
 .first, .second, .third {
   padding: 10px;
-  width: 30%; /* Adjust the width to make all fields equal */
+  width: 30%;
 }
 
 /* Style the conversion button */
 #convertBtn {
-  padding: 10px 20px; /* Increase padding for button */
+  padding: 10px 20px;
   font-size: 1.2em;
   font-weight: 700;
   border-radius: 5px;
   color: #fff;
-  background-color: #3498db; /* Use the same blue color as the header */
+  background-color: #3498db;
   border: none;
-  margin-left: 10px; /* Reduce margin */
+  margin-left: 10px;
   margin-bottom: 20px;
-  cursor: pointer; /* Add a pointer cursor on hover */
-  transition: background-color 0.5s; /* Smooth background color transition */
+  cursor: pointer;
+  transition: background-color 0.5s;
 }
 
 #convertBtn:hover {
-  background-color: #2a4dad; /* Darker blue on hover */
+  background-color: #2a4dad;
 }
 
 /* Style the result display */
 #result {
-  font-size: 1.6em; /* Adjust result font size */
+  font-size: 1.6em;
   font-weight: 700;
   padding: 10px 0;
   font-style: italic;
+  color: #3498db; /* Color the result to match the theme */
 }
 
 #display, #displayFind {
-  color: #e7ed76; /* Change text color to a pale yellow */
+  color: #e7ed76;
   padding: 10px 0;
-  font-size: 1.1em; /* Adjust font size */
+  font-size: 1.1em;
   font-weight: 700;
 }
 
 /* Style the find rate button */
 #searchBtn {
-  padding: 10px 20px; /* Increase padding for button */
+  padding: 10px 20px;
   font-size: 1.2em;
   font-weight: 700;
   border-radius: 5px;
   margin-left: 10px;
   color: #fff;
-  background-color: #3498db; /* Use the same blue color as the header */
+  background-color: #3498db;
   border: none;
-  cursor: pointer; /* Add a pointer cursor on hover */
+  cursor: pointer;
 }
 
 /* Style the currency code input box */
@@ -131,9 +141,69 @@ label {
 /* Style the code search button */
 #codeBtn {
   color: #fff;
-  padding: 10px 20px; /* Increase padding for button */
+  padding: 10px 20px;
   margin-left: 10px;
   border-radius: 5px;
-  background-color: #3498db; /* Use the same blue color as the header */
+  background-color: #3498db;
   font-weight: 700;
+}
+/* Comment Box Styles */
+.comment-box {
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  padding: 5px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  margin-top: 10px; /* Add margin to separate it from the content above */
+}
+
+/* Style the comment box header */
+.comment-box h2 {
+  font-size: 1.1em;
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: #3498db; /* Match the theme color */
+}
+
+/* Style the comment textarea */
+#comment-text {
+  width: 100%;
+  height: 100px;
+  border: 2px solid #6f6ff4;
+  border-radius: 8px;
+  margin: 10px 0;
+  padding: 10px;
+  resize: vertical; /* Allow vertical resizing */
+}
+
+/* Style the submit button */
+#comment-form button {
+  padding: 5px 10px;
+  font-size: 1.1em;
+  font-weight: 100;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #3498db;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.5s;
+}
+
+#comment-form button:hover {
+  background-color: #2a4dad;
+}
+
+
+#comments {
+  margin-top: 10px;
+}
+
+/* Style individual comments if needed */
+.comment {
+  background-color: #e7ed76;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 5px;
+  font-size: 1.1em;
+  font-weight: 10;
+  color: #000;
 }

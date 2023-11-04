@@ -11,8 +11,8 @@
     <div class="exchangeRate">
       <div class="header">
         <div>
-          <h1>Fx-pesa currency converter</h1>
-          <p>You're welcome to the one stop shop for your currency rates.</p>
+          <h1>Fxpesa Currency Converter</h1>
+          <p>Where currency conversion meets simplicity.</p>
         </div>
       </div>
       <div class="get_rate">
@@ -64,6 +64,8 @@
                 <option value="AFN">AFN</option>
                 <option value="ALL">ALL</option>
                 <option value="BBD">BBD</option>
+                <option value="KES">KES</option>
+                
               </select>
             </div>
             <div class="third">
@@ -83,14 +85,25 @@
                 <option value="AFN">AFN</option>
                 <option value="ALL">ALL</option>
                 <option value="BBD">BBD</option>
+                <option value="KES">KES</option>
+
               </select>
             </div>
           </div>
           <input type="button" id="convertBtn" value="Convert" />
         </form>
         <div id="result"></div>
-      </div>
+         </div>
+      <div class="comment-box">
+        <h2>Leave a Comment</h2>
+        <form id="comment-form">
+          <textarea id="comment-text" rows="4" cols="50" placeholder="Write your comment here"></textarea>
+          <button type="submit">Submit</button>
+        </form>
+        <div id="comments">
+          <!-- Display comments here -->
     </div>
     <script src="index.js"></script>
+    
   </body>
 </html>

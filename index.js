@@ -80,3 +80,21 @@ document.getElementById("codeBtn").addEventListener("click", function () {
       }
     });
 });
+// Add an Event listener to the comment button
+const commentForm = document.getElementById("comment-form");
+const commentText = document.getElementById("comment-text");
+const commentsContainer = document.getElementById("comments");
+
+commentForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const newComment = commentText.value.trim();
+    if (newComment !== "") {
+        const commentElement = document.createElement("div");
+        commentElement.classList.add("comment");
+        commentElement.textContent = newComment;
+
+        commentsContainer.appendChild(commentElement);
+        commentText.value = "";
+    }
+});
