@@ -5,9 +5,15 @@ const amountInput = document.getElementById("amount");
 const resultDisplay = document.getElementById("result");
 
 // Event listeners
-document.getElementById("convertBtn").addEventListener("click", handleCurrencyConversion);
-document.getElementById("searchBtn").addEventListener("click", handleExchangeRateLookup);
-document.getElementById("codeBtn").addEventListener("click", handleCurrencyCodeLookup);
+document
+  .getElementById("convertBtn")
+  .addEventListener("click", handleCurrencyConversion);
+document
+  .getElementById("searchBtn")
+  .addEventListener("click", handleExchangeRateLookup);
+document
+  .getElementById("codeBtn")
+  .addEventListener("click", handleCurrencyCodeLookup);
 
 // Load comments from local storage on page load
 const commentsContainer = document.getElementById("comments");
@@ -60,13 +66,13 @@ function fetchExchangeRate(fromCurrency, toCurrency, amount) {
   const apiurl = `https://v6.exchangerate-api.com/v6/218938046c0019a4b22b42f1/latest/${fromCurrency}`;
 
   fetch(apiurl)
-    .then(response => response.json())
-    .then(data => {
+    .then((response) => response.json())
+    .then((data) => {
       const rate = data.conversion_rates[toCurrency];
       const convertedAmount = (amount * rate).toFixed(2);
       resultDisplay.innerHTML = `${amount} ${fromCurrency} is equivalent to ${convertedAmount} ${toCurrency}`;
     })
-    .catch(error => {
+    .catch((error) => {
       console.error("Error fetching exchange rate:", error);
       resultDisplay.innerHTML = "Error fetching exchange rate.";
     });
@@ -75,28 +81,31 @@ function fetchExchangeRate(fromCurrency, toCurrency, amount) {
 // Event handler for exchange rate lookup
 function handleExchangeRateLookup() {
   const toCurrency = document.getElementById("xRate").value;
-  const apiurl = "https://v6.exchangerate-api.com/v6/218938046c0019a4b22b42f1/latest/USD";
+  const apiurl =
+    "https://v6.exchangerate-api.com/v6/218938046c0019a4b22b42f1/latest/USD";
 
   fetch(apiurl)
-    .then(response => response.json())
-    .then(data => {
+    .then((response) => response.json())
+    .then((data) => {
       const rate = data.conversion_rates[toCurrency];
       document.getElementById("display").innerHTML = `Exchange rate = ${rate}`;
     })
-    .catch(error => {
+    .catch((error) => {
       console.error("Error fetching exchange rate:", error);
-      document.getElementById("display").innerHTML = "Error fetching exchange rate.";
+      document.getElementById("display").innerHTML =
+        "Error fetching exchange rate.";
     });
 }
 
 // Event handler for currency code lookup
 function handleCurrencyCodeLookup() {
   const myWord = document.getElementById("findCode").value;
-  const UrlApi = "https://v6.exchangerate-api.com/v6/218938046c0019a4b22b42f1/codes";
+  const UrlApi =
+    "https://v6.exchangerate-api.com/v6/218938046c0019a4b22b42f1/codes";
 
   fetch(UrlApi)
-    .then(response => response.json())
-    .then(data => {
+    .then((response) => response.json())
+    .then((data) => {
       let newWord = null;
 
       for (const currency of data.supported_codes) {
@@ -109,12 +118,14 @@ function handleCurrencyCodeLookup() {
       if (newWord) {
         document.getElementById("displayFind").innerHTML = newWord;
       } else {
-        document.getElementById("displayFind").innerHTML = "Country name not found for this code.";
+        document.getElementById("displayFind").innerHTML =
+          "Country name not found for this code.";
       }
     })
-    .catch(error => {
+    .catch((error) => {
       console.error("Error fetching currency code:", error);
-      document.getElementById("displayFind").innerHTML = "Error fetching currency code.";
+      document.getElementById("displayFind").innerHTML =
+        "Error fetching currency code.";
     });
 }
 
