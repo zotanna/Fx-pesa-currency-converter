@@ -207,3 +207,13 @@ label {
   font-weight: 10;
   color: #000;
 }
+footer {
+  background-color: #333; /* Background color */
+  color: #fff; /* Text color */
+  text-align: center; /* Center-align text */
+  padding: 10px; /* Add padding to create space around content */
+  border-top: 1px solid #555; /* Add a top border */
+  font-size: 0.8em; /* Adjust font size */
+  font-weight: 300; /* Adjust font weight */
+}
+
