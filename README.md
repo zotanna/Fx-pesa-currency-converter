@@ -26,5 +26,6 @@ cd Fx-pesa-currency-converter
 code .
 
 ```
+**STEP 4 :** Create a file index.js
 
 ```
