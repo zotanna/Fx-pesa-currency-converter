@@ -1,5 +1,7 @@
-                   FxPesa currency converter by Denis kimani kairu, Github link:https://github.com/zotanna/Fx-pesa-currency-converter
-
+https://zotanna.github.io/Fx-pesa-currency-converter/                   FxPesa currency converter
+ by Denis kimani kairu
+Github pages livelink:
+https://zotanna.github.io/Fx-pesa-currency-converter/
 A simple currecy converter, built with HTML5, CSS3, JAVASCRIPT.
 Fetches data from a public API "https://www.exchangerate-api.com"
 Allows currency conversion of 160 countries.
@@ -29,3 +31,4 @@ code .
 **STEP 4 :** Create a file index.js
 
 ```
+
